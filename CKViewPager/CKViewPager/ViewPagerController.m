@@ -48,11 +48,10 @@ static const BOOL kFixLatterTabsPositions = NO;
 
 #pragma mark - ViewPagerController
 
-@interface ViewPagerController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate>
+@interface ViewPagerController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 // Tab and content stuff
-@property UIScrollView *tabsView;
-@property UIView *contentView;
+
 @property UIPageViewController *pageViewController;
 @property(assign) id <UIScrollViewDelegate> actualDelegate;
 // Tab and content cache
@@ -68,7 +67,6 @@ static const BOOL kFixLatterTabsPositions = NO;
 @end
 
 @implementation ViewPagerController
-
 
 #pragma mark - Init
 

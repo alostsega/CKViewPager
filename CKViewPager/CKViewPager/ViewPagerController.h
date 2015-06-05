@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, ViewPagerIndicator)
 @protocol ViewPagerDataSource;
 @protocol ViewPagerDelegate;
 
-@interface ViewPagerController : UIViewController
+@interface ViewPagerController : UIViewController<UIScrollViewDelegate>
 
 /**
 * The object that acts as the data source of the receiving viewPager
@@ -97,6 +97,9 @@ typedef NS_ENUM(NSUInteger, ViewPagerIndicator)
 * Provided views goes here as content
 */
 @property(nonatomic) UIColor *contentViewBackgroundColor;
+
+@property UIScrollView *tabsView;
+@property UIView *contentView;
 
 #pragma mark Methods
 /**
