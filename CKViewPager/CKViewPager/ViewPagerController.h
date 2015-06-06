@@ -98,6 +98,7 @@ typedef NS_ENUM(NSUInteger, ViewPagerIndicator)
 */
 @property(nonatomic) UIColor *contentViewBackgroundColor;
 
+@property UIView *contentTabsView;
 @property UIScrollView *tabsView;
 @property UIView *contentView;
 

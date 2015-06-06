@@ -135,10 +135,10 @@ static const BOOL kFixLatterTabsPositions = NO;
 	}
 
 	CGRect frame = self.tabsView.frame;
-	frame.origin.x = MAX(0,(CGRectGetWidth(self.view.frame)-768)/2);
+	frame.origin.x = MAX(0,(CGRectGetWidth(self.view.frame)-640)/2);
     
 	frame.origin.y = self.tabLocation == ViewPagerTabLocationTop ? topLayoutGuide : CGRectGetHeight(self.view.frame) - self.tabHeight;
-	frame.size.width = MIN(CGRectGetWidth(self.view.frame),768);
+	frame.size.width = MIN(CGRectGetWidth(self.view.frame),640);
 	frame.size.height = self.tabHeight;
 	self.tabsView.frame = frame;
 
@@ -481,6 +481,14 @@ static const BOOL kFixLatterTabsPositions = NO;
 
 - (void)defaultSetup
 {
+    if(!self.contentTabsView){
+        CGFloat statusBarHeight = 20;
+        self.contentTabsView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.frame), statusBarHeight+self.tabHeight)];
+        
+        self.contentTabsView.backgroundColor = self.tabsViewBackgroundColor;
+        [self.view addSubview:self.contentTabsView];
+    }
+    
 	// Empty tabs and contents
 	for (UIView *tabView in self.tabs) {
 		[tabView removeFromSuperview];
