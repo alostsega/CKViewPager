@@ -481,14 +481,6 @@ static const BOOL kFixLatterTabsPositions = NO;
 
 - (void)defaultSetup
 {
-    if(!self.contentTabsView){
-        CGFloat statusBarHeight = 20;
-        self.contentTabsView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.frame), statusBarHeight+self.tabHeight)];
-        
-        self.contentTabsView.backgroundColor = self.tabsViewBackgroundColor;
-        [self.view addSubview:self.contentTabsView];
-    }
-    
 	// Empty tabs and contents
 	for (UIView *tabView in self.tabs) {
 		[tabView removeFromSuperview];
@@ -530,6 +522,15 @@ static const BOOL kFixLatterTabsPositions = NO;
 		self.underlineStroke = [UIView new];
 		[self.tabsView addSubview:self.underlineStroke];
 	}
+    
+    //Content tabsView
+    if(!self.contentTabsView){
+        CGFloat statusBarHeight = 20;
+        self.contentTabsView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.frame), statusBarHeight+self.tabHeight)];
+        
+        self.contentTabsView.backgroundColor = self.tabsViewBackgroundColor;
+        [self.view insertSubview:self.contentTabsView belowSubview:self.tabsView];
+    }
 
 	// Add tab views to _tabsView
 	CGFloat contentSizeWidth = 0;
