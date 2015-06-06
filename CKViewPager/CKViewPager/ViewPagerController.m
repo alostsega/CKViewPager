@@ -519,7 +519,7 @@ static const BOOL kFixLatterTabsPositions = NO;
 
 		self.tabsView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.view.frame), self.tabHeight)];
 		self.tabsView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-		self.tabsView.backgroundColor = self.tabsViewBackgroundColor;
+		self.tabsView.backgroundColor = [UIColor clearColor];
 		self.tabsView.scrollsToTop = NO;
 		self.tabsView.showsHorizontalScrollIndicator = NO;
 		self.tabsView.showsVerticalScrollIndicator = NO;
