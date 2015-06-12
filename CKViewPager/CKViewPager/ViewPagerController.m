@@ -170,7 +170,15 @@ static const BOOL kFixLatterTabsPositions = NO;
 
 
 #pragma mark - Interface rotation
-
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        [self layoutSubviews];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        self.activeTabIndex = self.activeTabIndex;
+    }];
+}
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
